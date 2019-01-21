@@ -1,0 +1,47 @@
+{
+  "name": "dashboard",
+  "version": "0.0.1",
+  "description": "Dashboard for Embedded Devices",
+  "author": "Limerick Design",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "node dist/server.js",
+    "node-watch": "nodemon dist/server.js",
+    "start": "yarn run serve",
+    "ts-build": "tsc",
+    "ts-watch": "tsc -w",
+    "ts-lint": "tslint -c tslint.json -p tsconfig.json",
+    "build": "yarn run ts-build && yarn run ts-lint",
+    "debug": "yarn run build && yarn run start",
+    "debug-watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"yarn run ts-watch\" \"yarn run node-watch\"",
+    "watch": "yarn run build && yarn run debug-watch"
+  },
+  "dependencies": {
+    "d3": "^5.7.0",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.4",
+    "next": "^7.0.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/d3": "^5.7.0",
+    "@types/errorhandler": "^0.0.32",
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.13",
+    "@types/next": "^7.0.6",
+    "@types/react": "^16.7.20",
+    "@types/react-dom": "^16.0.11",
+    "@types/socket.io": "^2.1.2",
+    "@types/socket.io-client": "^1.4.32",
+    "@types/styled-jsx": "^2.2.7",
+    "concurrently": "^4.1.0",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.9",
+    "tslint": "^5.12.1",
+    "typescript": "^3.2.4"
+  }
+}
